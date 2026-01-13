@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex & Jordan - Adventure Awaits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #3d85c6;
+            --accent: #f4a460;
+            --text: #2c3e50;
+            --light: #f0f8ff;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" opacity="0.05">⛰️</text></svg>') repeat;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .compass {
+            font-size: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .tagline {
+            font-size: 13px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            letter-spacing: 0.1em;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .hero-date {
+            font-size: 20px;
+            font-weight: 300;
+            margin-top: 40px;
+            padding: 15px 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: inline-block;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        .section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-line {
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+        
+        .story-text {
+            font-size: 18px;
+            font-weight: 300;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .journey-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(30, 58, 95, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .journey-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .journey-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .journey-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .journey-card p {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text);
+        }
+        
+        .countdown-section {
+            background: var(--primary);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .countdown-section h2 {
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .countdown-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            display: block;
+            line-height: 1;
+            color: var(--accent);
+        }
+        
+        .countdown-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.7;
+        }
+        
+        .location-section {
+            background: #fff;
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .location-info h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .location-info p {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        
+        .location-map {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+        
+        .rsvp-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #e8956e 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .rsvp-section h2 {
+            color: #fff;
+        }
+        
+        .rsvp-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            background: #fff;
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--primary);
+            text-align: center;
+            padding: 60px 20px;
+            color: #fff;
+        }
+        
+        footer h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 0.1em;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 42px; line-height: 1.1; }
+            .tagline { font-size: 11px; }
+            .compass { font-size: 50px; }
+            .hero-date { font-size: 14px; padding: 12px 25px; }
+            .journey-grid { grid-template-columns: 1fr; }
+            .location-grid { grid-template-columns: 1fr; }
+            .countdown { gap: 12px; flex-wrap: wrap; }
+            .countdown-item { min-width: 70px; }
+            .countdown-number { font-size: 32px; }
+            .countdown-label { font-size: 10px; }
+            .section { padding: 50px 15px; }
+            .section-header h2 { font-size: 24px; }
+            .story-text { font-size: 14px; }
+            .rsvp-section { padding: 50px 15px; }
+            .rsvp-section h2 { font-size: 32px; }
+            .rsvp-btn { padding: 14px 30px; font-size: 12px; }
+            footer { padding: 40px 20px 80px; }
+            footer h3 { font-size: 28px; }
+            .hero { padding: 30px 15px; min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+            .journey-item { padding: 25px 20px; }
+            .location-card h4 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="compass">🧭</div>
+            <p class="tagline">A New Adventure Begins</p>
+            <h1>ALEX<br>&<br>JORDAN</h1>
+            <div class="hero-date">
+                <i class="fas fa-calendar-alt"></i> August 8, 2026
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" style="color: #fff; font-size: 24px;"></i>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2>OUR STORY</h2>
+            <div class="section-line"></div>
+        </div>
+        <p class="story-text">Two adventurers who found each other on a hiking trail in Colorado. Since then, we've climbed mountains, crossed oceans, and explored new horizons together. Now, we're ready for the greatest adventure of all – forever.</p>
+    </section>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2>THE JOURNEY</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="journey-grid">
+            <div class="journey-card">
+                <div class="icon">🎒</div>
+                <h3>WE MET</h3>
+                <p>Rocky Mountain Trail<br>March 2022</p>
+            </div>
+            <div class="journey-card">
+                <div class="icon">💍</div>
+                <h3>THE PROPOSAL</h3>
+                <p>Machu Picchu, Peru<br>December 2025</p>
+            </div>
+            <div class="journey-card">
+                <div class="icon">🎊</div>
+                <h3>THE BIG DAY</h3>
+                <p>Lakeside Lodge<br>August 2026</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="countdown-section">
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.1em;">COUNTDOWN TO ADVENTURE</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">207</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">14</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">32</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">18</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section location-section">
+        <div class="location-grid">
+            <div class="location-info">
+                <h3>BASE CAMP</h3>
+                <p><strong>Lakeside Lodge & Resort</strong></p>
+                <p>1234 Mountain View Road<br>Lake Tahoe, California</p>
+                <p><i class="fas fa-clock"></i> Ceremony at 4:00 PM<br>
+                <i class="fas fa-utensils"></i> Dinner at 6:00 PM</p>
+            </div>
+            <div class="location-map">🏔️</div>
+        </div>
+    </section>
+    
+    <section class="rsvp-section">
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.1em; margin-bottom: 20px;">JOIN THE EXPEDITION</h2>
+        <p>RSVP by July 1, 2026</p>
+        <a href="#" class="rsvp-btn">COUNT ME IN</a>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Want a custom invitation like this?</p>
+        <a href="../index.html#contact" class="rsvp-btn" style="background: transparent; border: 2px solid #fff; margin-top: 15px;">CONTACT US</a>
+    </section>
+    
+    <footer>
+        <h3>ALEX & JORDAN</h3>
+        <p style="opacity: 0.7; margin-top: 10px;">The adventure continues...</p>
+        <p style="margin-top: 20px;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 14px;">← Back to Main Site</a></p>
+    </footer>
+    
+    <script>
+        const weddingDate = new Date('August 8, 2026 16:00:00').getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').textContent = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+    </script>
+</body>
+</html>

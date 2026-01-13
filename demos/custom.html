@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Wedding Invitation | Your Unique Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        :root {
+            --primary: #8B7355;
+            --secondary: #D4AF37;
+            --accent: #E8DDD4;
+            --text: #2C2C2C;
+            --light: #FAF8F5;
+            --gradient: linear-gradient(135deg, #8B7355 0%, #D4AF37 50%, #8B7355 100%);
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--light);
+            pointer-events: none;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(5deg); }
+            50% { transform: translate(-20px, 20px) rotate(-5deg); }
+            75% { transform: translate(20px, 30px) rotate(3deg); }
+        }
+
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .custom-badge {
+            display: inline-block;
+            padding: 10px 30px;
+            background: var(--gradient);
+            color: white;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 10vw, 80px);
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: clamp(60px, 12vw, 100px);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gradient);
+            margin: 20px auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+        }
+
+        .feature-icon i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .process-section {
+            background: white;
+            border-radius: 30px;
+            padding: 80px 40px;
+            margin: 100px auto;
+            max-width: 1000px;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        .step-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .step-content p {
+            font-size: 15px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Examples Showcase */
+        .examples-section {
+            padding: 100px 20px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .example-card {
+            aspect-ratio: 3/4;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: scale(1.03);
+        }
+
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .example-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .example-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+        }
+
+        .example-placeholder span {
+            font-size: 14px;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        .example-card:nth-child(1) .example-placeholder { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .example-card:nth-child(2) .example-placeholder { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .example-card:nth-child(3) .example-placeholder { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .example-card:nth-child(4) .example-placeholder { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+        .example-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 2;
+            color: white;
+        }
+
+        .example-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .example-info p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: var(--gradient);
+            border-radius: 30px;
+            margin: 60px auto;
+            max-width: 1000px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--primary);
+        }
+
+        footer p {
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h1 span {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .custom-badge {
+                padding: 8px 20px;
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .section-header p {
+                font-size: 13px;
+            }
+
+            .process-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                font-size: 20px;
+            }
+
+            .step-content h3 {
+                font-size: 18px;
+            }
+
+            .step-content p {
+                font-size: 13px;
+            }
+
+            .cta-section {
+                padding: 60px 20px;
+                margin: 40px 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 26px;
+            }
+
+            .cta-section p {
+                font-size: 14px;
+            }
+
+            .cta-btn {
+                padding: 14px 35px;
+                font-size: 12px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .feature-icon i {
+                font-size: 24px;
+            }
+
+            .feature-card h3 {
+                font-size: 20px;
+            }
+
+            .feature-card p {
+                font-size: 13px;
+            }
+
+            .process-section {
+                padding: 50px 20px;
+                margin: 60px 15px;
+            }
+
+            .examples-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .example-placeholder {
+                font-size: 40px;
+            }
+
+            .example-placeholder span {
+                font-size: 11px;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .animated-bg {
+                display: none;
+            }
+
+            .floating-shape {
+                opacity: 0.05;
+            }
+
+            .shape-1 { width: 150px; height: 150px; }
+            .shape-2 { width: 100px; height: 100px; }
+            .shape-3 { width: 80px; height: 80px; }
+
+            footer {
+                padding: 40px 15px 100px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="custom-badge">Fully Personalized</div>
+            <h1>Your Vision<span>Our Design</span></h1>
+            <p class="hero-subtitle">Create a wedding invitation that's uniquely yours</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <div class="section-header">
+            <h2>What You Get</h2>
+            <div class="divider"></div>
+            <p>Everything tailored to your style</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Custom Colors</h3>
+                <p>Choose any color palette that matches your wedding theme and personal style</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h3>Unique Typography</h3>
+                <p>Select from hundreds of elegant fonts or request your own custom typography</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3>Your Photos</h3>
+                <p>Incorporate your engagement photos and personal images throughout</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>Custom Animations</h3>
+                <p>Add beautiful animations and interactive elements to bring your invitation to life</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Background Music</h3>
+                <p>Include your favorite song or a romantic melody as background music</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Multilingual</h3>
+                <p>Create invitations in any language or multiple languages for all your guests</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <div class="process-section">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <div class="divider"></div>
+            <p>Simple 4-step process</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Share Your Vision</h3>
+                    <p>Tell us about your wedding theme, colors, style preferences, and any inspiration you have in mind. The more details, the better!</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Design Consultation</h3>
+                    <p>We'll discuss your ideas and create a design concept. You'll receive mockups and can request unlimited revisions.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Review & Refine</h3>
+                    <p>Preview your invitation and suggest any changes. We'll refine every detail until it's perfect.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Launch & Share</h3>
+                    <p>Your custom invitation goes live! Share it with your guests via a unique link, QR code, or embedded on your website.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Examples Section -->
+    <section class="examples-section">
+        <div class="section-header">
+            <h2>Past Creations</h2>
+            <div class="divider"></div>
+            <p>Some of our custom designs</p>
+        </div>
+
+        <div class="examples-grid">
+            <div class="example-card">
+                <div class="example-placeholder">
+                    <i class="fas fa-crown"></i>
+                    <span>Royal Theme</span>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <span>Romantic</span>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-placeholder">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Beach Wedding</span>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="example-placeholder">
+                    <i class="fas fa-star"></i>
+                    <span>Modern Glam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Create Something Unique?</h2>
+        <p>Let's design your dream wedding invitation together</p>
+        <a href="../index.html#contact" class="cta-btn">Start Your Custom Design</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>This is a demo of a custom wedding invitation</p>
+        <p style="margin-top: 15px;"><a href="../index.html">← Back to Main Site</a></p>
+    </footer>
+
+    <script>
+        // Parallax effect for floating shapes
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.floating-shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .process-step, .example-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

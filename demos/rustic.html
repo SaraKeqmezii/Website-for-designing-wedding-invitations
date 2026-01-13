@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma & James - Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        :root {
+            --primary: #8b6f47;
+            --secondary: #c9a87c;
+            --text: #4a3f35;
+            --bg: #faf6f0;
+            --accent: #d4c4a8;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" opacity="0.03">🌿</text></svg>') repeat;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .leaves {
+            font-size: 40px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-style: italic;
+            color: var(--secondary);
+            display: block;
+            margin: -10px 0;
+        }
+        
+        .date-location {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--accent);
+        }
+        
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .location {
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--secondary);
+            margin: 40px auto;
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .timeline-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(139, 111, 71, 0.1);
+        }
+        
+        .timeline-time {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        
+        .timeline-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .rsvp-section {
+            background: var(--primary);
+            color: #fff;
+            padding: 80px 20px;
+        }
+        
+        .rsvp-section h2 {
+            color: #fff;
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #fff;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+        
+        .map-section {
+            padding: 0;
+        }
+        
+        .map-section iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg);
+        }
+        
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 38px; }
+            .ampersand { font-size: 28px; }
+            .subtitle { font-size: 10px; letter-spacing: 0.2em; }
+            .date { font-size: 22px; }
+            .location { font-size: 12px; }
+            .countdown { gap: 10px; flex-wrap: wrap; }
+            .countdown-item { min-width: 70px; }
+            .countdown-number { font-size: 28px; }
+            .countdown-label { font-size: 10px; }
+            .section { padding: 50px 15px; }
+            .section h2 { font-size: 28px; }
+            .section p { font-size: 14px; }
+            .timeline-item { padding: 20px; }
+            .timeline-title { font-size: 20px; }
+            .rsvp-section { padding: 50px 15px; }
+            .rsvp-btn { padding: 14px 30px; font-size: 12px; }
+            .map-section iframe { height: 280px; }
+            footer { padding: 40px 20px 80px; }
+            footer p { font-size: 20px; }
+            .leaves { font-size: 30px; }
+            .hero { padding: 30px 15px; min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+            .date-location { margin-top: 30px; padding-top: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="leaves">🌿</div>
+            <p class="subtitle">Together with their families</p>
+            <h1>Emma</h1>
+            <span class="ampersand">&</span>
+            <h1>James</h1>
+            <div class="date-location">
+                <p class="date">September 15, 2026</p>
+                <p class="location">Willow Creek Farm, Vermont</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Counting Down</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">245</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">12</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">30</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">45</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Our Story</h2>
+        <p>We met on a rainy autumn afternoon at a cozy bookshop in Boston. What started as a conversation about our favorite novels turned into coffee dates, long walks, and eventually, a love that we want to celebrate with you.</p>
+        <div class="divider"></div>
+    </section>
+    
+    <section class="section">
+        <h2>Wedding Day Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-time">3:00 PM</p>
+                <p class="timeline-title">Ceremony</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-time">4:30 PM</p>
+                <p class="timeline-title">Cocktail Hour</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-time">6:00 PM</p>
+                <p class="timeline-title">Dinner & Reception</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-time">10:00 PM</p>
+                <p class="timeline-title">Dancing Under the Stars</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsvp-section">
+        <h2>Will You Join Us?</h2>
+        <p>Please respond by August 1, 2026</p>
+        <a href="#" class="rsvp-btn">RSVP Now</a>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Want a custom invitation like this?</p>
+        <a href="../index.html#contact" class="rsvp-btn" style="background: transparent; border: 2px solid #fff; margin-top: 15px;">Contact Us</a>
+    </section>
+    
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.5!2d-72.6!3d44.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDEyJzAwLjAiTiA3MsKwMzYnMDAuMCJX!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    
+    <footer>
+        <p>Emma & James</p>
+        <small style="opacity: 0.6;">We can't wait to celebrate with you</small>
+        <p style="margin-top: 20px;"><a href="../index.html" style="color: var(--secondary); text-decoration: none; font-size: 14px;">← Back to Main Site</a></p>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        const weddingDate = new Date('September 15, 2026 15:00:00').getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>

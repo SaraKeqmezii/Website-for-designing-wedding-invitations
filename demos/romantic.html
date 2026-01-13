@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie & Michael - Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        :root {
+            --primary: #c77d8e;
+            --secondary: #f4b8c5;
+            --text: #5a4550;
+            --bg: #fff9fa;
+            --gold: #d4a574;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff9fa 0%, #ffe4ec 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '💕';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .heart-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .invite-text {
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 72px;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .and-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: var(--secondary);
+            margin: 10px 0;
+        }
+        
+        .date-box {
+            margin-top: 50px;
+            padding: 30px 50px;
+            border: 2px solid var(--secondary);
+            border-radius: 100px;
+            display: inline-block;
+        }
+        
+        .date-box .date {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+        
+        .section {
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .section p {
+            font-size: 16px;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .photo-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .photo-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .detail-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(199, 125, 142, 0.15);
+        }
+        
+        .detail-card i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .detail-card h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .detail-card p {
+            font-size: 14px;
+            font-weight: 300;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-family: 'Great Vibes', cursive;
+            font-size: 64px;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text);
+            opacity: 0.7;
+        }
+        
+        .rsvp-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #e8a0b4 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .rsvp-section h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .rsvp-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg);
+        }
+        
+        footer p {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 38px; }
+            .and-text { font-size: 22px; }
+            .invite-text { font-size: 11px; }
+            .heart-icon { font-size: 40px; }
+            .date { font-size: 18px; }
+            .venue { font-size: 12px; }
+            .countdown { gap: 12px; flex-wrap: wrap; }
+            .countdown-item { min-width: 65px; }
+            .countdown-number { font-size: 30px; }
+            .countdown-label { font-size: 9px; }
+            .details-grid { grid-template-columns: 1fr; gap: 15px; }
+            .photo-section { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .section { padding: 50px 15px; }
+            .section h2 { font-size: 32px; }
+            .section p { font-size: 14px; }
+            .rsvp-section { padding: 50px 15px; }
+            .rsvp-section h2 { font-size: 36px; }
+            .rsvp-btn { padding: 14px 30px; font-size: 12px; }
+            footer { padding: 40px 20px 80px; }
+            footer p { font-size: 28px; }
+            .hero { padding: 30px 15px; min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+            .date-box { margin-top: 25px; padding-top: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="heart-icon">💕</div>
+            <p class="invite-text">We're Getting Married</p>
+            <h1>Sophie</h1>
+            <p class="and-text">and</p>
+            <h1>Michael</h1>
+            <div class="date-box">
+                <p class="date">June 20, 2026</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Save the Date</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">158</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">10</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">24</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">56</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Our Love Story</h2>
+        <p>From the moment our eyes met across a crowded room, we knew something magical was beginning. Three years, countless adventures, and a million laughs later, here we are – ready to start our forever together.</p>
+    </section>
+    
+    <div class="photo-section">
+        <div class="photo-item">📸</div>
+        <div class="photo-item">💑</div>
+        <div class="photo-item">💍</div>
+    </div>
+    
+    <section class="section">
+        <h2>Celebration Details</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <i class="fas fa-church"></i>
+                <h3>Ceremony</h3>
+                <p>St. Mary's Chapel<br>2:00 PM</p>
+            </div>
+            <div class="detail-card">
+                <i class="fas fa-champagne-glasses"></i>
+                <h3>Reception</h3>
+                <p>Rose Garden Estate<br>5:00 PM</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsvp-section">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 48px;">Join Our Celebration</h2>
+        <p>Kindly respond by May 15, 2026</p>
+        <a href="#" class="rsvp-btn">RSVP with Love</a>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Want a custom invitation like this?</p>
+        <a href="../index.html#contact" class="rsvp-btn" style="background: transparent; border: 2px solid #fff; margin-top: 15px;">Contact Us</a>
+    </section>
+    
+    <footer>
+        <p>Sophie & Michael</p>
+        <small style="opacity: 0.6; display: block; margin-top: 10px;">Forever starts here</small>
+        <p style="margin-top: 20px;"><a href="../index.html" style="color: var(--gold); text-decoration: none; font-size: 14px;">← Back to Main Site</a></p>
+    </footer>
+    
+    <script>
+        const weddingDate = new Date('June 20, 2026 14:00:00').getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').textContent = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+    </script>
+</body>
+</html>

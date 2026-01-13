@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna & David - Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        :root {
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --light-gray: #e0e0e0;
+            --text: #333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--white);
+        }
+        
+        .hero-content {
+            max-width: 500px;
+        }
+        
+        .date-top {
+            font-size: 13px;
+            letter-spacing: 0.4em;
+            color: var(--text);
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 80px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--black);
+            line-height: 1;
+        }
+        
+        .separator {
+            width: 1px;
+            height: 80px;
+            background: var(--black);
+            margin: 40px auto;
+        }
+        
+        .venue {
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-top: 60px;
+        }
+        
+        .section {
+            padding: 120px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--black);
+            margin-bottom: 40px;
+        }
+        
+        .thin-line {
+            width: 100px;
+            height: 1px;
+            background: var(--light-gray);
+            margin: 0 auto 40px;
+        }
+        
+        .story-text {
+            font-size: 16px;
+            font-weight: 200;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 2.2;
+        }
+        
+        .countdown-section {
+            background: var(--gray);
+            padding: 100px 20px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 50px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 300;
+            color: var(--black);
+            display: block;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-top: 15px;
+            display: block;
+        }
+        
+        .details-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 120px 20px;
+        }
+        
+        .details-section h2 {
+            color: var(--white);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 700px;
+            margin: 60px auto 0;
+        }
+        
+        .detail-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+        
+        .detail-item p {
+            font-size: 14px;
+            font-weight: 200;
+            line-height: 2;
+            opacity: 0.8;
+        }
+        
+        .timeline-section {
+            padding: 120px 20px;
+        }
+        
+        .timeline {
+            max-width: 400px;
+            margin: 60px auto 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 40px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-time {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 400;
+            min-width: 100px;
+        }
+        
+        .timeline-event {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+        
+        .rsvp-section {
+            background: var(--white);
+            padding: 120px 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 20px 70px;
+            background: var(--black);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            background: var(--text);
+        }
+        
+        footer {
+            background: var(--gray);
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--black);
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 36px; letter-spacing: 0.08em; }
+            .date-top { font-size: 11px; letter-spacing: 0.3em; margin-bottom: 40px; }
+            .venue { font-size: 11px; }
+            .separator { margin: 15px auto; }
+            .countdown { gap: 15px; flex-wrap: wrap; }
+            .countdown-item { min-width: 60px; }
+            .countdown-number { font-size: 32px; }
+            .countdown-label { font-size: 9px; }
+            .details-grid { grid-template-columns: 1fr; gap: 35px; }
+            .section { padding: 50px 15px; }
+            .section h3 { font-size: 14px; }
+            .section p { font-size: 13px; }
+            .rsvp-section { padding: 50px 15px; }
+            .rsvp-section h2 { font-size: 28px; }
+            .rsvp-btn { padding: 14px 35px; font-size: 11px; }
+            footer { padding: 40px 20px 80px; }
+            footer p { font-size: 28px; }
+            .hero { padding: 30px 15px; min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+            .thin-line { width: 40px; }
+            .timeline { gap: 20px; }
+            .timeline-item { gap: 25px; }
+            .timeline-time { font-size: 12px; min-width: 70px; }
+            .timeline-event { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <p class="date-top">12 · 07 · 2026</p>
+            <h1>ANNA</h1>
+            <div class="separator"></div>
+            <h1>DAVID</h1>
+            <p class="venue">The Modern Gallery · New York</p>
+        </div>
+    </section>
+    
+    <section class="countdown-section">
+        <div class="thin-line"></div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--black);">The Countdown</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">180</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">06</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">42</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="thin-line"></div>
+        <h2>Our Story</h2>
+        <p class="story-text">In the quiet simplicity of an art gallery, two strangers found connection. What began as a shared appreciation for minimalist art evolved into a love defined by understated beauty and profound meaning.</p>
+    </section>
+    
+    <section class="details-section">
+        <div class="thin-line" style="background: rgba(255,255,255,0.3);"></div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300;">The Details</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>Ceremony</h3>
+                <p>The Modern Gallery<br>53 W 53rd Street<br>New York, NY<br><br>5:00 PM</p>
+            </div>
+            <div class="detail-item">
+                <h3>Reception</h3>
+                <p>The Rooftop<br>Same Location<br><br>7:00 PM<br>Cocktail Attire</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="timeline-section">
+        <div class="thin-line"></div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--black);">Schedule</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-time">5:00 PM</span>
+                <span class="timeline-event">Ceremony</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">5:45 PM</span>
+                <span class="timeline-event">Cocktails</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">7:00 PM</span>
+                <span class="timeline-event">Dinner</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">9:00 PM</span>
+                <span class="timeline-event">Dancing</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsvp-section">
+        <div class="thin-line"></div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--black);">Join Us</h2>
+        <p style="font-weight: 200; margin-top: 20px;">Please respond by June 1, 2026</p>
+        <a href="#" class="rsvp-btn">Respond</a>
+        <p style="margin-top: 40px; font-size: 13px; color: var(--text); opacity: 0.7;">Want a custom invitation like this?</p>
+        <a href="../index.html#contact" class="rsvp-btn" style="background: transparent; color: var(--black); border: 1px solid var(--black); margin-top: 15px;">Contact Us</a>
+    </section>
+    
+    <footer>
+        <p>A & D</p>
+        <p style="margin-top: 20px;"><a href="../index.html" style="color: var(--black); text-decoration: none; font-size: 14px;">← Back to Main Site</a></p>
+    </footer>
+    
+    <script>
+        const weddingDate = new Date('July 12, 2026 17:00:00').getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia & William - Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        :root {
+            --primary: #5a7247;
+            --secondary: #8fbc8f;
+            --accent: #f0e6d3;
+            --text: #3d4a35;
+            --bg: #fdfcf9;
+            --pink: #e8c4c4;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg);
+            position: relative;
+        }
+        
+        .floral-border {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.6;
+        }
+        
+        .floral-border.top-left { top: 30px; left: 30px; }
+        .floral-border.top-right { top: 30px; right: 30px; transform: scaleX(-1); }
+        .floral-border.bottom-left { bottom: 30px; left: 30px; transform: scaleY(-1); }
+        .floral-border.bottom-right { bottom: 30px; right: 30px; transform: scale(-1); }
+        
+        .hero-content {
+            max-width: 600px;
+            padding: 60px;
+            border: 1px solid var(--secondary);
+            position: relative;
+        }
+        
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--secondary);
+            pointer-events: none;
+        }
+        
+        .flower-icon {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .invite-text {
+            font-size: 12px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .ampersand {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .date-text {
+            margin-top: 40px;
+            font-size: 16px;
+            letter-spacing: 0.2em;
+            color: var(--text);
+        }
+        
+        .section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .section-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .section-decoration span {
+            font-size: 20px;
+        }
+        
+        .section-decoration .line {
+            width: 60px;
+            height: 1px;
+            background: var(--secondary);
+        }
+        
+        .story-text {
+            font-size: 17px;
+            font-weight: 300;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .countdown-section {
+            background: var(--accent);
+            padding: 80px 20px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text);
+        }
+        
+        .details-section {
+            background: #fff;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .detail-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .detail-item .icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .detail-item p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .rsvp-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #6b8654 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .rsvp-section h2 {
+            color: #fff;
+        }
+        
+        .rsvp-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            padding: 18px 60px;
+            background: #fff;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: var(--bg);
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        footer p {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary);
+        }
+        
+        footer small {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 34px; }
+            .ampersand { font-size: 28px; }
+            .invite-text { font-size: 10px; }
+            .flower-icon { font-size: 40px; }
+            .hero-content { padding: 30px 20px; margin: 15px; }
+            .floral-border { font-size: 20px; }
+            .floral-border.top-left, .floral-border.top-right { top: 15px; }
+            .floral-border.bottom-left, .floral-border.bottom-right { bottom: 15px; }
+            .floral-border.top-left, .floral-border.bottom-left { left: 15px; }
+            .floral-border.top-right, .floral-border.bottom-right { right: 15px; }
+            .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .details-grid { grid-template-columns: 1fr; gap: 15px; }
+            .countdown { gap: 12px; flex-wrap: wrap; }
+            .countdown-item { min-width: 65px; }
+            .countdown-number { font-size: 28px; }
+            .countdown-label { font-size: 9px; }
+            .section { padding: 50px 15px; }
+            .section h2 { font-size: 28px; }
+            .section p { font-size: 14px; }
+            .rsvp-section { padding: 50px 15px; }
+            .rsvp-section h2 { font-size: 32px; }
+            .rsvp-btn { padding: 14px 30px; font-size: 12px; }
+            footer { padding: 40px 20px 80px; }
+            footer p { font-size: 24px; }
+            .hero { padding: 20px 10px; min-height: auto; padding-top: 50px; padding-bottom: 50px; }
+            .date-location { margin-top: 20px; }
+            .date { font-size: 16px; }
+            .venue { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <span class="floral-border top-left">🌸</span>
+        <span class="floral-border top-right">🌸</span>
+        <span class="floral-border bottom-left">🌸</span>
+        <span class="floral-border bottom-right">🌸</span>
+        
+        <div class="hero-content">
+            <div class="flower-icon">🌷</div>
+            <p class="invite-text">Together with their families</p>
+            <h1>Olivia</h1>
+            <span class="ampersand">&</span>
+            <h1>William</h1>
+            <p class="date-text">Request the pleasure of your company<br>on the Twenty-First of May, 2026</p>
+        </div>
+    </section>
+    
+    <section class="countdown-section">
+        <div class="section-decoration">
+            <div class="line"></div>
+            <span>🌿</span>
+            <div class="line"></div>
+        </div>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; color: var(--primary);">Days Until We Say I Do</h2>
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">128</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">08</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">45</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">22</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="section-decoration">
+            <div class="line"></div>
+            <span>💐</span>
+            <div class="line"></div>
+        </div>
+        <h2>Our Story</h2>
+        <p class="story-text">We first met at a friend's garden party, surrounded by blooming roses and the sweet scent of spring. What blossomed that day has grown into a love that we cherish deeply. Now, we invite you to witness the next chapter of our journey.</p>
+    </section>
+    
+    <div class="gallery">
+        <div class="gallery-item">🌺</div>
+        <div class="gallery-item">💑</div>
+        <div class="gallery-item">💍</div>
+        <div class="gallery-item">🌻</div>
+    </div>
+    
+    <section class="section details-section">
+        <div class="section-decoration">
+            <div class="line"></div>
+            <span>🌹</span>
+            <div class="line"></div>
+        </div>
+        <h2>Celebration Details</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <div class="icon">⛪</div>
+                <h3>Ceremony</h3>
+                <p>St. Andrew's Church<br>123 Garden Lane<br>2:30 PM</p>
+            </div>
+            <div class="detail-item">
+                <div class="icon">🥂</div>
+                <h3>Reception</h3>
+                <p>Botanical Gardens<br>456 Flower Avenue<br>5:00 PM</p>
+            </div>
+            <div class="detail-item">
+                <div class="icon">👗</div>
+                <h3>Dress Code</h3>
+                <p>Garden Formal<br>Pastel colors welcome</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsvp-section">
+        <div class="section-decoration" style="margin-bottom: 30px;">
+            <div class="line" style="background: rgba(255,255,255,0.5);"></div>
+            <span>🌼</span>
+            <div class="line" style="background: rgba(255,255,255,0.5);"></div>
+        </div>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 42px;">Will You Join Our Celebration?</h2>
+        <p>Kindly respond by April 15, 2026</p>
+        <a href="#" class="rsvp-btn">RSVP</a>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Want a custom invitation like this?</p>
+        <a href="../index.html#contact" class="rsvp-btn" style="background: transparent; border: 2px solid #fff; margin-top: 15px;">Contact Us</a>
+    </section>
+    
+    <footer>
+        <p>Olivia & William</p>
+        <small>With love and gratitude</small>
+        <p style="margin-top: 20px;"><a href="../index.html" style="color: var(--primary); text-decoration: none; font-size: 14px;">← Back to Main Site</a></p>
+    </footer>
+    
+    <script>
+        const weddingDate = new Date('May 21, 2026 14:30:00').getTime();
+        
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
